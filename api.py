@@ -9,7 +9,7 @@ def lister_parties(idul):
         # la requête s'est déroulée normalement; décoder le JSON
         rep = rep.json()
         if 'message' in rep:
-            raise RuntimeError
+            raise RuntimeError(rep['message'])
         print(rep)
         return rep
     
@@ -23,13 +23,25 @@ def débuter_partie(idul):
         # la requête s'est déroulée normalement; décoder le JSON
         rep = rep.json()
         if 'message' in rep:
-            raise RuntimeError
+            raise RuntimeError(rep['message'])
         print(rep)
         return (rep['id'], rep['état'])
     
     else:
         print(f"Le POST sur {url_base+'debuter'} a produit le code d'erreur {rep.status_code}.")
 
-
-
-lister_parties('daiba')
+def jouer_coup(id_partie, type_coup, position):
+    url_base = 'https://python.gel.ulaval.ca/quoridor/api/'
+    rep = requests.post(url_base+'jouer/', data={'id': id_partie, 'type': type_coup, 'pos': position})
+    if rep.status_code == 200:
+        # la requête s'est déroulée normalement; décoder le JSON
+        rep = rep.json()
+        if 'message' in rep:
+            raise RuntimeError(rep['message'])
+        if 'gagnant' in rep:
+            raise StopIteration(rep['gagnant'])
+        print(rep)
+        return (rep)
+    
+    else:
+        print(f"Le POST sur {url_base+'debuter'} a produit le code d'erreur {rep.status_code}.")
