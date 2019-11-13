@@ -9,4 +9,9 @@ def analyser_commande():
     parser.add_argument('idul', help = 'IDUL du joueur.')
     parser.add_argument('-l', '--lister', help = 'Lister les identifiants de vos 20 dernières parties', action = 'store_true')
     return parser.parse_args()
+
+
+
+
+
 analyser_commande()
