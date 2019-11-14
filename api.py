@@ -10,7 +10,6 @@ def lister_parties(idul):
         rep = rep.json()
         if 'message' in rep:
             raise RuntimeError(rep['message'])
-        print(rep)
         return rep
     
     else:
@@ -24,7 +23,6 @@ def débuter_partie(idul):
         rep = rep.json()
         if 'message' in rep:
             raise RuntimeError(rep['message'])
-        print(rep)
         return (rep['id'], rep['état'])
     
     else:
@@ -40,7 +38,6 @@ def jouer_coup(id_partie, type_coup, position):
             raise RuntimeError(rep['message'])
         if 'gagnant' in rep:
             raise StopIteration(rep['gagnant'])
-        print(rep)
         return (rep)
     
     else:
