@@ -7,7 +7,8 @@ def analyser_commande():
     parser = argparse.ArgumentParser(description="Jeux Quoridor - phase 1")
     # insérer ici avec les bons appels à la méthode add_argument
     parser.add_argument('idul', help='IDUL du joueur.')
-    parser.add_argument('-l', '--lister', dest='lister', help='Lister les identifiants de vos 20 dernières parties', action='store_true')
+    temp = 'Lister les identifiants de vos 20 dernières parties'
+    parser.add_argument('-l', '--lister', dest='lister', help=temp, action='store_true')
     return parser.parse_args()
 
 def afficher_damier_ascii(dico):
@@ -94,14 +95,14 @@ else:
                 if str(CHOIX) == '1':
                     OK = True
                     POS = getpos()
-                    STATE = api.jouer_coup(IDGAME, 'D', POS)['état']
+                    STATE = api.jouer_coup(IDGAME, 'D', POS)
                 elif str(CHOIX) == '2':
                     POS = getpos()
-                    STATE = api.jouer_coup(IDGAME, 'MH', POS)['état']
+                    STATE = api.jouer_coup(IDGAME, 'MH', POS)
                     OK = True
                 elif str(CHOIX) == '3':
                     POS = getpos()
-                    STATE = api.jouer_coup(IDGAME, 'MV', POS)['état']
+                    STATE = api.jouer_coup(IDGAME, 'MV', POS)
                     OK = True
                 elif str(CHOIX) == '4':
                     OK = True
