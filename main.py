@@ -54,18 +54,18 @@ def afficher_damier_ascii(dico):
     print('  | 1   2   3   4   5   6   7   8   9')
 
 def getpos():
-    OK2 = False
+    ok2 = False
     print('Entrez la position où vous voulez vous déplacer')
     print("Vos données doivent être entre 0 et 9 et séparées d'une virgule")
-    while not OK2:
+    while not ok2:
         pos = ()
         choix1 = input()
-        po = str(  choix1).split(',')
+        po = str(choix1).split(',')
         if len(po) == 2:
             if po[0].isdigit() and po[1].isdigit():
                 pos = (int(po[0]), int(po[1]))
                 if (pos[0] < 10 and pos[0] >= 0) and (pos[1] < 10 and pos[1] >= 0):
-                    OK2 = True
+                    ok2 = True
                 else:
                     print('Données invalides   ex: 2,3')
             else:
