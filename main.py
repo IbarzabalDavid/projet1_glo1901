@@ -1,8 +1,10 @@
+"""Ceci est mon main"""
 import argparse
 import api
 
 
 def analyser_commande():
+    """Ceci est mon analyseur"""
     # créer un analyseur de ligne de commande
     parser = argparse.ArgumentParser(description="Jeux Quoridor - phase 1")
     # insérer ici avec les bons appels à la méthode add_argument
@@ -12,6 +14,7 @@ def analyser_commande():
     return parser.parse_args()
 
 def afficher_damier_ascii(dico):
+    """Ceci affiche mon damier"""
     tabmv = [[' 'for i in range(8)]for i in range(17)]
     tabmh = [[' 'for i in range(35)]for i in range(8)]
     tabj = [['.'for i in range(9)]for i in range(9)]
@@ -55,6 +58,7 @@ def afficher_damier_ascii(dico):
     print('  | 1   2   3   4   5   6   7   8   9')
 
 def getpos():
+    """Ceci me permet de demander a mon utilisateur d'entrer un position valide"""
     ok2 = False
     print('Entrez la position où vous voulez vous déplacer')
     print("Vos données doivent être entre 0 et 9 et séparées d'une virgule")
